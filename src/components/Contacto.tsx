@@ -26,47 +26,48 @@ export default function Contacto() {
   }
 
   return (
-    <section id="contacto" className="mx-auto max-w-6xl px-6 py-20">
+    <section id="contacto" className="relative mx-auto max-w-6xl px-6 py-24">
       <div className="grid gap-12 md:grid-cols-2">
         <div>
-          <h2 className="text-sm font-semibold tracking-wide text-accent uppercase">
+          <h2 className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
             Contacto
           </h2>
-          <p className="mt-2 text-3xl font-bold text-primary md:text-4xl">
-            Conversemos sobre tu negocio
+          <p className="mt-2 text-3xl font-bold md:text-4xl">
+            Conversemos sobre{" "}
+            <span className="gradient-text">tu negocio</span>
           </p>
-          <p className="mt-4 text-foreground/70">
+          <p className="mt-4 text-foreground/60">
             Completá el formulario y te contactamos por WhatsApp, o
             escribinos directamente por los siguientes medios.
           </p>
 
           <dl className="mt-8 space-y-4 text-sm">
             <div>
-              <dt className="font-semibold text-primary">Teléfono / WhatsApp</dt>
-              <dd className="text-foreground/70">{siteConfig.phone}</dd>
+              <dt className="font-semibold text-primary-light">Teléfono / WhatsApp</dt>
+              <dd className="text-foreground/60">{siteConfig.phone}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-primary">Email</dt>
-              <dd className="text-foreground/70">{siteConfig.email}</dd>
+              <dt className="font-semibold text-primary-light">Email</dt>
+              <dd className="text-foreground/60">{siteConfig.email}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-primary">Dirección</dt>
-              <dd className="text-foreground/70">{siteConfig.address}</dd>
+              <dt className="font-semibold text-primary-light">Dirección</dt>
+              <dd className="text-foreground/60">{siteConfig.address}</dd>
             </div>
             <div>
-              <dt className="font-semibold text-primary">Horario de atención</dt>
-              <dd className="text-foreground/70">{siteConfig.hours}</dd>
+              <dt className="font-semibold text-primary-light">Horario de atención</dt>
+              <dd className="text-foreground/60">{siteConfig.hours}</dd>
             </div>
           </dl>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl border border-black/5 bg-white p-8 shadow-sm"
+          className="glass rounded-2xl p-8 shadow-[0_0_60px_-25px_var(--color-primary)]"
         >
           <div className="space-y-4">
             <div>
-              <label htmlFor="nombre" className="text-sm font-medium text-primary">
+              <label htmlFor="nombre" className="text-sm font-medium text-foreground/80">
                 Nombre
               </label>
               <input
@@ -74,24 +75,24 @@ export default function Contacto() {
                 required
                 value={nombre}
                 onChange={(e) => setNombre(e.target.value)}
-                className="mt-1 w-full rounded-lg border border-black/10 px-4 py-2 text-sm outline-none focus:border-primary"
+                className="mt-1 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground outline-none transition-colors placeholder:text-foreground/30 focus:border-primary/50"
                 placeholder="Tu nombre"
               />
             </div>
             <div>
-              <label htmlFor="telefono" className="text-sm font-medium text-primary">
+              <label htmlFor="telefono" className="text-sm font-medium text-foreground/80">
                 Teléfono
               </label>
               <input
                 id="telefono"
                 value={telefono}
                 onChange={(e) => setTelefono(e.target.value)}
-                className="mt-1 w-full rounded-lg border border-black/10 px-4 py-2 text-sm outline-none focus:border-primary"
+                className="mt-1 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground outline-none transition-colors placeholder:text-foreground/30 focus:border-primary/50"
                 placeholder="Tu teléfono"
               />
             </div>
             <div>
-              <label htmlFor="mensaje" className="text-sm font-medium text-primary">
+              <label htmlFor="mensaje" className="text-sm font-medium text-foreground/80">
                 Mensaje
               </label>
               <textarea
@@ -100,13 +101,13 @@ export default function Contacto() {
                 rows={4}
                 value={mensaje}
                 onChange={(e) => setMensaje(e.target.value)}
-                className="mt-1 w-full rounded-lg border border-black/10 px-4 py-2 text-sm outline-none focus:border-primary"
+                className="mt-1 w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-foreground outline-none transition-colors placeholder:text-foreground/30 focus:border-primary/50"
                 placeholder="Contanos en qué podemos ayudarte"
               />
             </div>
             <button
               type="submit"
-              className="w-full rounded-full bg-primary py-3 font-semibold text-white transition-colors hover:bg-primary-dark"
+              className="w-full rounded-full bg-gradient-to-r from-primary to-accent py-3 font-semibold text-background transition-transform hover:scale-[1.02]"
             >
               Enviar consulta por WhatsApp
             </button>

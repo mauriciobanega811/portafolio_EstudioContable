@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #101828;
-  --color-primary: #0b3556;
-  --color-primary-dark: #082740;
-  --color-primary-light: #14507f;
-  --color-accent: #c9a227;
-  --color-accent-light: #e0bc4a;
+  --background: #05070d;
+  --foreground: #e7ebf3;
+  --color-primary: #22d3ee;
+  --color-primary-dark: #0e7490;
+  --color-primary-light: #67e8f9;
+  --color-accent: #a78bfa;
+  --color-accent-light: #c4b5fd;
+  --color-surface: #0d1220;
+  --color-surface-light: #131a2c;
 }
 
 @theme inline {
@@ -18,6 +20,8 @@
   --color-primary-light: var(--color-primary-light);
   --color-accent: var(--color-accent);
   --color-accent-light: var(--color-accent-light);
+  --color-surface: var(--color-surface);
+  --color-surface-light: var(--color-surface-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -26,4 +30,80 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.gradient-text {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-accent)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.glow-border:hover {
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 30px -10px rgba(34, 211, 238, 0.35);
+}
+
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+@keyframes blob-float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.15);
+  }
+  66% {
+    transform: translate(-25px, 25px) scale(0.9);
+  }
+}
+
+.animate-blob {
+  animation: blob-float 16s infinite ease-in-out;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s infinite;
 }
